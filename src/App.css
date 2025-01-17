@@ -1,0 +1,4 @@
+#root {
+    margin: 0 auto;
+    width: 100%; /* Changed from 100vw to 100% */
+}
