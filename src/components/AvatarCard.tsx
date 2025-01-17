@@ -9,17 +9,17 @@ interface AvatarProps {
 
 const AvatarCard = ({ name, designation, picture, selected }: AvatarProps) => {
   return (
-    <div className="justify-between text-center min-w-24 h-full">
+    <div className="justify-between text-center h-full">
       <div className="flex justify-evenly">
-        <img src={picture} alt="user" className="rounded-full" />
+        <img src={picture} alt="user" className="rounded-full w-avatar-image-mobile md:w-avatar-image lg:w-avatar-image" />
       </div>
-      <p className={`${selected ? "font-bold" : "font-normal"} text-base mt-avatar-card-name-margin-top`}>
+      <p className={`${selected ? "font-bold" : "font-normal"} text-xs lg:text-base mt-avatar-card-name-margin-top`}>
         {name}
       </p>
       <p
         className={`${
           selected ? "font-bold" : "font-normal"
-        } text-card-details text-card-details-title-gray`}
+        } text-xs lg:text-base text-card-details text-card-details-title-gray`}
       >
         {designation}
       </p>

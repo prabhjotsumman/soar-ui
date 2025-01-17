@@ -76,13 +76,14 @@ export default {
         "quick-transfer-card-y-padding": "2.186rem", //35px
         "quick-transfer-card-x-padding": "1.563rem", //25px
         "quick-transfer-input-field-padding-left": "1.875rem", //30px
-        "quick-transfer-amount-section-top-distance": '1.875rem', //30px
-        
+        "quick-transfer-amount-section-top-distance": "1.875rem", //30px
+
         //avatar
         "avatar-card-name-margin-top": "0.938rem", //15px
+        "avatar-image": "4.375rem", //70px
 
-        // MOBILE VERSION
-        "container": "20.313rem", //325px
+        // MOBILE VERSION ***********************************
+        container: "20.313rem", //325px
 
         //profile
         "profile-width-mobile": "2.188rem", // 60px
@@ -91,7 +92,19 @@ export default {
         //card
         "card-width-mobile": "16.563rem", // 265px
         "card-height-mobile": "10.625rem", // 170px
+        "card-number-height-mobile": "3.125rem", // 50px
+        "card-ellipse-mobile": "1.151rem", //18.41px
 
+        //avatar
+        "avatar-image-mobile": "3.125rem", //50px
+
+        //quick transfer
+        "quick-transfer-input-field-padding-left-mobile": "0.938rem", //15px
+        "quick-transfer-card-y-padding-mobile": "1.25rem", //35px
+        "quick-transfer-card-x-padding-mobile": "1.125rem", //18px
+
+        // Icons & Profile
+        "icon-dimensions-mobile": "2.5rem", // 40px
       },
       fontFamily: {
         inter: ["Inter", "sans-serif"],
@@ -101,6 +114,10 @@ export default {
         "heading-one": "1.75rem", // 28px
         "card-details": "0.938rem", // 15px
         "card-number": "1.375rem", // 22px
+
+        // MOBILE
+        "card-details-title-mobile": "0.625rem", //10px
+        "card-details-details-mobile": "0.813rem", //13px"
       },
       lineHeight: {
         "heading-one": "2.118rem", // 33.89px

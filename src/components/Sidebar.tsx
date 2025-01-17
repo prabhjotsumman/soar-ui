@@ -8,9 +8,9 @@ const SidebarItem: React.FC<{
   link: string;
   className?: string;
 }> = ({ icon, label, link, className }) => (
-  <li className={`flex hover:text-sidebar-text-selected ${className} p-2.5`}>
+  <li className={`flex hover:text-sidebar-text-selected ${className} p-2 md:p-2.5 lg:p-2.5`}>
     <Icon name={icon} />
-    <a className="ml-4 text-lg font-normal font-inter" href={link}>
+    <a className="ml-4 text-sm lg:text-lg font-normal font-inter" href={link}>
       {label}
     </a>
   </li>

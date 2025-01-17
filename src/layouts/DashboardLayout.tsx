@@ -11,7 +11,7 @@ const DashboardLayout: React.FC<{ children: React.ReactNode }> = ({
   };
 
   return (
-    <div className="flex bg-gray-100  w-full max-w-full border-2 border-red-500">
+    <div className="flex bg-gray-100  w-full max-w-full ">
       {/* Sidebar */}
       <Sidebar isOpen={isOpen} />
 

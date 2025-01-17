@@ -12,12 +12,12 @@ const BarChart = ({device}) => {
     250, 120, 230, 390, 210, 230, 320,
   ];
 
-  const barThickness = device === 'desktop' ? 15 : 8;
+  const barThickness = device === 'desktop' ? 15 : 7;
   const data = {
     labels: labels,
     datasets: [
       {
-        label: "WithDraw",
+        label: "Withdraw",
         backgroundColor: "#232323",
         data: withDrawData,
         borderRadius: 50,

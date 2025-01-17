@@ -25,7 +25,7 @@ const Card = ({
 
   return (
     <div
-      className={`relative p-6 rounded-3xl w-card-width h-card-height ${selectedBg}`}
+      className={`relative px-5 py-4 md:p-6 lg:p-6 rounded-3xl w-card-width-mobile h-card-height-mobile lg:w-card-width lg:h-card-height ${selectedBg}`}
       {...props}
     >
       <div className=" flex justify-between">
@@ -37,16 +37,18 @@ const Card = ({
           >
             Balance
           </p>
-          <p className="text-xl font-lato font-normals">${balance}</p>
+          <p className="text-base lg:text-xl font-lato font-normals">
+            ${balance}
+          </p>
         </div>
         <div className="">
           <Icon name={selected ? "chip" : "chipBlack"} />
         </div>
       </div>
-      <div className="flex pt-6">
+      <div className="flex pt-6 md:pt-8 lg:pt-8">
         <div>
           <p
-            className={`"font-lato text-xs font-normal  leading-details-title ${
+            className={`font-lato text-card-details-title-mobile md:text-xs lg:text-xs font-normal lg:leading-details-title ${
               selected
                 ? "text-card-details-title"
                 : "text-card-details-title-gray"
@@ -54,11 +56,13 @@ const Card = ({
           >
             CARD HOLDER
           </p>
-          <p className="font-lato text-card-details">{cardHolder}</p>
+          <p className="font-lato text-card-details-details-mobile lg:text-card-details">
+            {cardHolder}
+          </p>
         </div>
         <div className="ml-16">
           <p
-            className={`"font-lato text-xs font-normal leading-details-title ${
+            className={`"font-lato text-card-details-title-mobile md:text-xs lg:text-xs font-normal lg:leading-details-title ${
               selected
                 ? "text-card-details-title"
                 : "text-card-details-title-gray"
@@ -66,22 +70,24 @@ const Card = ({
           >
             VALID THRU
           </p>
-          <p className="font-lato text-card-details leading-card-details">
+          <p className="font-lato text-card-details-details-mobile lg:text-card-details leading-card-details">
             {validThru}
           </p>
         </div>
       </div>
       <div
-        className={`absolute left-0 pl-6 bottom-0 py-4 px-0 align-middle flex justify-between  h-card-number-height w-full ${
+        className={`absolute left-0 pl-6 bottom-0 py-4 px-0 align-middle flex justify-between  h-card-number-height-mobile lg:h-card-number-height w-full ${
           selected ? "bg-card-gradient" : "border-t  border-t-card-border"
         }`}
       >
-        <div className="font-lato text-card-number font-normal flex items-center">
+        <div className="font-lato text-card-details md:text-card-number lg:text-card-number font-normal flex items-center">
           {cardNumber}
         </div>
-        <div className="mr-4 flex">
-          <Icon name={selected ? "ellipse" : "ellipseGray"} />
-          <div className="-ml-4">
+        <div className="mr-4 flex ">
+          <div className="w-card-ellipse-mobile lg:w-full">
+            <Icon name={selected ? "ellipse" : "ellipseGray"} />
+          </div>
+          <div className="-ml-7 lg:-ml-4 w-card-ellipse-mobile lg:w-full">
             <Icon name={selected ? "ellipse" : "ellipseGray"} />
           </div>
         </div>
