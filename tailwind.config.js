@@ -83,6 +83,15 @@ export default {
 
         // MOBILE VERSION
         "container": "20.313rem", //325px
+
+        //profile
+        "profile-width-mobile": "2.188rem", // 60px
+        "profile-height-mobile": "2.188rem", // 60px
+
+        //card
+        "card-width-mobile": "16.563rem", // 265px
+        "card-height-mobile": "10.625rem", // 170px
+
       },
       fontFamily: {
         inter: ["Inter", "sans-serif"],
