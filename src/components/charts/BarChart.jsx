@@ -1,7 +1,7 @@
 import Chart from "chart.js/auto";
 import { Bar } from "react-chartjs-2";
 
-const BarChart = () => {
+const BarChart = ({device}) => {
   const weeklyActivityData = null; // Replace with your data source
   const labels = ["Sat", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri"];
 
@@ -11,6 +11,8 @@ const BarChart = () => {
   const depositedData = weeklyActivityData?.deposit || [
     250, 120, 230, 390, 210, 230, 320,
   ];
+
+  const barThickness = device === 'desktop' ? 15 : 8;
   const data = {
     labels: labels,
     datasets: [
@@ -20,7 +22,7 @@ const BarChart = () => {
         data: withDrawData,
         borderRadius: 50,
         borderSkipped: false,
-        barThickness: 15,
+        barThickness,
       },
       {
         label: "Deposit",
@@ -28,7 +30,7 @@ const BarChart = () => {
         data: depositedData,
         borderRadius: 50,
         borderSkipped: false,
-        barThickness: 15,
+        barThickness,
       },
     ],
   };

@@ -3,6 +3,7 @@ import React from "react";
 import { Line } from "react-chartjs-2";
 // import useStore from "../../hooks/useStore";
 
+
 function LineChart({ ...props }) {
   const store = null; //useStore();
   const balanceHistoryData = store?.balanceHistory || [
@@ -39,7 +40,7 @@ function LineChart({ ...props }) {
         scales: {
           y: {
             ticks: {
-              // maxTicksLimit: 5, // Show only 5 labels
+              maxTicksLimit: 5, // Show only 5 labels
             },
             grid: {
               borderDash: [4, 10], // Create a dotted effect ([dash length, space length])
