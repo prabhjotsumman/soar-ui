@@ -72,7 +72,7 @@ const Card = ({
         </div>
       </div>
       <div
-        className={`absolute left-0 pl-6 bottom-0 py-4 px-0 align-middle flex justify-between w-card-width h-card-number-height ${
+        className={`absolute left-0 pl-6 bottom-0 py-4 px-0 align-middle flex justify-between  h-card-number-height w-full ${
           selected ? "bg-card-gradient" : "border-t  border-t-card-border"
         }`}
       >
