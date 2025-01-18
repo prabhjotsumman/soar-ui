@@ -1,18 +1,20 @@
 import React from "react";
-
 import AvatarCard from "../components/AvatarCard";
-
 import user1 from "../assets/users/user1.png";
 import user2 from "../assets/users/user2.png";
 import user3 from "../assets/users/user3.png";
-import ChevronIcon from "../assets/icons/ChevronIcon";
-import SendIcon from "../assets/icons/SendIcon";
+import { ChevronIcon, SendIcon } from "../assets/icons";
 
 const QuickTransfer = () => {
   return (
-    <div className="bg-white px-quick-transfer-card-x-padding-mobile lg:px-quick-transfer-card-x-padding py-quick-transfer-card-y-padding-mobile lg:py-quick-transfer-card-y-padding rounded-3xl w-full">
+    <div
+      className="bg-white px-quick-transfer-card-x-padding-mobile lg:px-quick-transfer-card-x-padding py-quick-transfer-card-y-padding-mobile lg:py-quick-transfer-card-y-padding rounded-3xl w-full"
+      role="region"
+      aria-labelledby="quick-transfer-title"
+    >
       {/* Contacts Quick Transfer section */}
-      <div className="flex flex-row justify-between items-center">
+      <div className="flex flex-row justify-between items-center" role="group" aria-labelledby="contacts-section">
+        <h2 id="contacts-section" className="sr-only">Contacts Quick Transfer</h2>
         <AvatarCard
           name="Livia Bator"
           designation="CEO"
@@ -21,31 +23,38 @@ const QuickTransfer = () => {
         />
         <AvatarCard name="Randy Press" designation="Director" picture={user2} />
         <AvatarCard name="WorkMan" designation="Designer" picture={user3} />
-        <div className="w-icon-dimensions-mobile h-icon-dimensions-mobile lg:w-icon-dimensions lg:h-icon-dimensions flex items-center justify-center radius-full rounded-full shadow-xl ">
-          <ChevronIcon/>
+        <div
+          className="w-icon-dimensions-mobile h-icon-dimensions-mobile lg:w-icon-dimensions lg:h-icon-dimensions flex items-center justify-center radius-full rounded-full shadow-xl"
+          role="button"
+          aria-label="More options"
+          tabIndex={0}
+        >
+          <ChevronIcon />
         </div>
       </div>
 
       {/* Send Money section */}
-      <div className="flex items-center justify-between space-x-7 mt-quick-transfer-amount-section-top-distance">
-        <p className="text-card-details-title-gray font-inter text-xs md:text-base lg:text-base">
+      <div className="flex items-center justify-between mt-quick-transfer-amount-section-top-distance" role="group" aria-labelledby="send-money-section">
+        <h2 id="send-money-section" className="sr-only">Send Money</h2>
+        <label htmlFor="amount-input" className="text-card-details-title-gray font-inter text-xs md:text-base lg:text-base mr-7">
           Write Amount
-        </p>
+        </label>
         <div className="relative flex flex-1">
           {/* Input field */}
           <input
+            id="amount-input"
             className="h-12 py-4 pl-quick-transfer-input-field-padding-left-mobile lg:pl-quick-transfer-input-field-padding-left pr-32 md:pr-36 lg:pr-36 text-card-details-title-gray bg-input-field rounded-3xl w-full text-xs lg:text-base"
-            aria-label="enter amount to send"
+            aria-label="Enter amount to send"
           />
 
           {/* Send Button */}
           <div className="absolute right-0 h-full">
             <button
               aria-label="Send money"
-              className={`bg-black text-white rounded-full px-6 h-full flex items-center justify-center hover:bg-slate-800`}
+              className="bg-black text-white rounded-full px-6 h-full flex items-center justify-center hover:bg-slate-800"
             >
               <div className="mr-2.5 text-sm lg:text-base">Send</div>
-              <SendIcon/>
+              <SendIcon />
             </button>
           </div>
         </div>

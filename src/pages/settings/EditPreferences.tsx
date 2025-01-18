@@ -1,3 +1,5 @@
+import React from "react";
+
 const EditPreferences = () => {
   return (
     <div className="w-full items-center mx-auto bg-white p-6 text-center">

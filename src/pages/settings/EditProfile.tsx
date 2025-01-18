@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 
-// import Icon from "../../components/common/Icon";
 import FormField from "./FormField";
 
 import { PROFILE_FORM_FIELDS } from "./constants";

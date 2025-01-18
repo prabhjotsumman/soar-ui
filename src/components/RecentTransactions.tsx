@@ -1,7 +1,5 @@
 import React from "react";
 import TransactionCard from "./TransactionCard";
-// import Icon from "./Icon";
-// import { ICONS } from "../../assets/icons/icons";
 // import useStore from "../hooks/useStore";
 
 const RecentTransactions = () => {
@@ -9,7 +7,7 @@ const RecentTransactions = () => {
   const transactions = [
     { id: 1, amount: -850, source: "card", date: "28 January 2021" },
     { id: 2, amount: 2500, source: "person", date: "28 January 2021" },
-    { id: 3, amount: 5400, source: "card", date: "28 January 2021" },
+    { id: 3, amount: 5400, source: "paypal", date: "28 January 2021" },
   ];
 
   return (

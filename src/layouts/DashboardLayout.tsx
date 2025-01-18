@@ -22,7 +22,6 @@ const DashboardLayout: React.FC<{ children?: React.ReactNode }> = () => {
 
         {/* Page Content */}
         <main className="p-6 overflow-auto">
-          {" "}
           <Outlet />
         </main>
         {isOpen && (

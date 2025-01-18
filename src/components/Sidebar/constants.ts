@@ -20,7 +20,7 @@ export const MENU_ITEMS = [
     Icon: EconomicInvestmentIcon,
   },
   { label: "Credit Cards", link: "/credit-cards", Icon: CreditCardIcon },
-  { label: "Loans", link: "/loand", Icon: LoanIcon },
+  { label: "Loans", link: "/loans", Icon: LoanIcon },
   { label: "Services", link: "/services", Icon: ServiceIcon },
   { label: "My Privileges", link: "/my-privileges", Icon: EconometricsIcon },
   { label: "Setting", link: "/settings", Icon: SettingsSolidIcon },

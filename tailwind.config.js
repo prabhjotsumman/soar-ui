@@ -29,8 +29,12 @@ export default {
 
         //input
         "input-field": "#EDF1F7",
-        "input-placeholder":  "#718EBF",
-        
+        "input-placeholder": "#718EBF",
+
+        //icons
+        "light-orange": "#FFF5D9",
+        "light-purple": "#E7EDFF",
+        "light-green": "#DCFAF8",
       },
       spacing: {
         // Cards
@@ -123,7 +127,7 @@ export default {
 
         //Form
         "form-gap": "1.375rem", //22px
-        "input-field-x-padding-mobile": "0.938rem" //15px,
+        "input-field-x-padding-mobile": "0.938rem", //15px,
       },
       fontFamily: {
         inter: ["Inter", "sans-serif"],

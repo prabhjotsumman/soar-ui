@@ -19,7 +19,6 @@ const Card = ({
   validThru,
   cardNumber,
   selected = false,
-  // className,
   ...props
 }: CardProps) => {
   const selectedBg = selected
@@ -29,10 +28,13 @@ const Card = ({
   return (
     <div
       className={`relative px-5 py-4 md:p-6 lg:p-6 rounded-3xl w-card-width-mobile h-card-height-mobile lg:w-card-width lg:h-card-height ${selectedBg}`}
+      role="region"
+      aria-label={`Card for ${cardHolder}`}
+      tabIndex={0}
       {...props}
     >
-      <div className=" flex justify-between">
-        <div className="">
+      <div className="flex justify-between">
+        <div>
           <p
             className={`font-lato text-xs ${
               selected ? "text-white" : "text-card-details-title-gray"
@@ -40,11 +42,11 @@ const Card = ({
           >
             Balance
           </p>
-          <p className="text-base lg:text-xl font-lato font-normals">
+          <p className="text-base lg:text-xl font-lato font-normal">
             ${balance}
           </p>
         </div>
-        <div className="">{selected ? <ChipIcon /> : <ChipBlackIcon />}</div>
+        <div>{selected ? <ChipIcon aria-label="Chip Icon" /> : <ChipBlackIcon aria-label="Chip Black Icon" />}</div>
       </div>
       <div className="flex pt-6 md:pt-8 lg:pt-8">
         <div>
@@ -63,7 +65,7 @@ const Card = ({
         </div>
         <div className="ml-16">
           <p
-            className={`"font-lato text-card-details-title-mobile md:text-xs lg:text-xs font-normal lg:leading-details-title ${
+            className={`font-lato text-card-details-title-mobile md:text-xs lg:text-xs font-normal lg:leading-details-title ${
               selected
                 ? "text-card-details-title"
                 : "text-card-details-title-gray"
@@ -77,8 +79,8 @@ const Card = ({
         </div>
       </div>
       <div
-        className={`absolute left-0 pl-6 bottom-0 py-4 px-0 align-middle flex justify-between  h-card-number-height-mobile lg:h-card-number-height w-full ${
-          selected ? "bg-card-gradient" : "border-t  border-t-card-border"
+        className={`absolute left-0 pl-6 bottom-0 py-4 px-0 align-middle flex justify-between h-card-number-height-mobile lg:h-card-number-height w-full ${
+          selected ? "bg-card-gradient" : "border-t border-t-card-border"
         }`}
       >
         <div className="font-lato text-card-details md:text-card-number lg:text-card-number font-normal flex items-center">
@@ -86,10 +88,10 @@ const Card = ({
         </div>
         <div className="mr-4 flex items-center justify-center">
           <div className="w-card-ellipse-mobile lg:w-full">
-            {selected ? <EllipseIcon /> : <EllipseGrayIcon />}
+            {selected ? <EllipseIcon aria-label="Ellipse Icon" /> : <EllipseGrayIcon aria-label="Ellipse Gray Icon" />}
           </div>
           <div className="-ml-7 lg:-ml-4 w-card-ellipse-mobile lg:w-full">
-            {selected ? <EllipseIcon /> : <EllipseGrayIcon />}
+            {selected ? <EllipseIcon aria-label="Ellipse Icon" /> : <EllipseGrayIcon aria-label="Ellipse Gray Icon" />}
           </div>
         </div>
       </div>
