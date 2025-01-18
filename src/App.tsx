@@ -18,10 +18,7 @@ const App: React.FC = () => {
             <Route path="/" element={<DashboardLayout />}>
               <Route index element={<DashboardOverview />} />
               <Route path="settings" element={<Settings />} />
-              <Route
-                path="transactions"
-                element={<div>Transactions Page</div>}
-              />
+              <Route path="*" element={<DashboardOverview />} />
               {/* Add other routes as needed */}
             </Route>
           </Routes>

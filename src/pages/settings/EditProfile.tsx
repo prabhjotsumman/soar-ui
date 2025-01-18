@@ -1,42 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 
-import Icon from "../../components/Icon";
+// import Icon from "../../components/common/Icon";
+import FormField from "./FormField";
+
 import { PROFILE_FORM_FIELDS } from "./constants";
-
-import { EditProfileFormDataType, ProfileFormFieldType } from "../../types";
-
-const getProfileData = (): EditProfileFormDataType | null => {
-  const storedData = localStorage.getItem("profileData");
-  return storedData ? JSON.parse(storedData) : null;
-};
-
-const saveProfileData = (data: EditProfileFormDataType & { profilePic: string | null }) => {
-  localStorage.setItem("profileData", JSON.stringify(data));
-  window.dispatchEvent(new Event("storage"));
-};
-
-const FormField: React.FC<{
-  field: ProfileFormFieldType;
-  register: ReturnType<typeof useForm<EditProfileFormDataType>>["register"]; // Updated typing
-  error?: string;
-}> = ({ field, register, error }) => (
-  <div>
-    <label className="block text-charcoal text-base mb-1" htmlFor={field.name}>
-      {field.label}
-    </label>
-    <input
-      id={field.name}
-      type={field.type}
-      aria-label={`Enter ${field.label}`}
-      {...register(field.name as keyof EditProfileFormDataType, { required: field.required })}
-      className={`w-full py-3 lg:py-4 px-input-field-x-padding-mobile border border-card-border rounded-2xl text-input-placeholder text-card-details font-normal leading-4 ${
-        error ? "border-red-500" : "border-gray-300"
-      }`}
-    />
-    {error && <span className="text-red-500 text-card-details">{error}</span>}
-  </div>
-);
+import { EditProfileFormDataType } from "../../types";
+import { getProfileData, saveProfileData } from '../../utils/profileUtils';
+import PencilIcon from "../../assets/icons/PencilIcon";
 
 const EditProfile = () => {
   const [profilePic, setProfilePic] = useState<string | null>(null);
@@ -98,7 +69,8 @@ const EditProfile = () => {
             aria-label="Edit profile picture"
             className="absolute bottom-0 -right-1 bg-black p-1 rounded-full"
           >
-            <Icon name="pencil" />
+            {/* <Icon name="pencil" /> */}
+            <PencilIcon/>
           </button>
         </div>
       </div>
