@@ -12,7 +12,7 @@ const DashboardOverview: React.FC = () => {
 
   return (
     <div className="bg-gray-100 min-h-screen w-full">
-      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6">
         <section aria-labelledby="my-cards-section" className="col-span-2">
           <h2 id="my-cards-section" className="text-lg font-semibold mb-4">
             My Cards
@@ -58,7 +58,7 @@ const DashboardOverview: React.FC = () => {
 
         <section
           aria-labelledby="weekly-activity-section"
-          className="col-span-2"
+          className="col-span-2 md:col-span-2"
         >
           <h2
             id="weekly-activity-section"
@@ -94,7 +94,7 @@ const DashboardOverview: React.FC = () => {
       <div className="flex flex-col lg:flex-row justify-between mt-6">
         <section
           aria-labelledby="quick-transfer-section"
-          className="lg:w-quick-transfer-card-container-width"
+          className="md:w-quick-transfer-card-container-width lg:w-quick-transfer-card-container-width"
         >
           <h2
             id="quick-transfer-section"

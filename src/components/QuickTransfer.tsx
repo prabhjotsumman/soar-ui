@@ -1,8 +1,6 @@
 import React from "react";
 import AvatarCard from "../components/AvatarCard";
-import user1 from "../assets/users/user1.png";
-import user2 from "../assets/users/user2.png";
-import user3 from "../assets/users/user3.png";
+import { user1, user2, user3 } from "../assets/images";
 import { ChevronIcon, SendIcon } from "../assets/icons";
 
 const QuickTransfer = () => {
@@ -13,8 +11,14 @@ const QuickTransfer = () => {
       aria-labelledby="quick-transfer-title"
     >
       {/* Contacts Quick Transfer section */}
-      <div className="flex flex-row justify-between items-center" role="group" aria-labelledby="contacts-section">
-        <h2 id="contacts-section" className="sr-only">Contacts Quick Transfer</h2>
+      <div
+        className="flex flex-row justify-between items-center"
+        role="group"
+        aria-labelledby="contacts-section"
+      >
+        <h2 id="contacts-section" className="sr-only">
+          Contacts Quick Transfer
+        </h2>
         <AvatarCard
           name="Livia Bator"
           designation="CEO"
@@ -34,9 +38,18 @@ const QuickTransfer = () => {
       </div>
 
       {/* Send Money section */}
-      <div className="flex items-center justify-between mt-quick-transfer-amount-section-top-distance" role="group" aria-labelledby="send-money-section">
-        <h2 id="send-money-section" className="sr-only">Send Money</h2>
-        <label htmlFor="amount-input" className="text-card-details-title-gray font-inter text-xs md:text-base lg:text-base mr-7">
+      <div
+        className="flex items-center justify-between mt-quick-transfer-amount-section-top-distance"
+        role="group"
+        aria-labelledby="send-money-section"
+      >
+        <h2 id="send-money-section" className="sr-only">
+          Send Money
+        </h2>
+        <label
+          htmlFor="amount-input"
+          className="text-card-details-title-gray font-inter text-xs md:text-base lg:text-base mr-7"
+        >
           Write Amount
         </label>
         <div className="relative flex flex-1">

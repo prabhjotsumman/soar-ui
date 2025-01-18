@@ -46,12 +46,18 @@ const Card = ({
             ${balance}
           </p>
         </div>
-        <div>{selected ? <ChipIcon aria-label="Chip Icon" /> : <ChipBlackIcon aria-label="Chip Black Icon" />}</div>
+        <div>
+          {selected ? (
+            <ChipIcon aria-label="Chip Icon" />
+          ) : (
+            <ChipBlackIcon aria-label="Chip Black Icon" />
+          )}
+        </div>
       </div>
-      <div className="flex pt-6 md:pt-8 lg:pt-8">
+      <div className="flex pt-6 md:pt-4 lg:pt-8">
         <div>
           <p
-            className={`font-lato text-card-details-title-mobile md:text-xs lg:text-xs font-normal lg:leading-details-title ${
+            className={`font-lato text-card-details-title-mobile lg:text-xs font-normal lg:leading-details-title ${
               selected
                 ? "text-card-details-title"
                 : "text-card-details-title-gray"
@@ -65,7 +71,7 @@ const Card = ({
         </div>
         <div className="ml-16">
           <p
-            className={`font-lato text-card-details-title-mobile md:text-xs lg:text-xs font-normal lg:leading-details-title ${
+            className={`font-lato text-card-details-title-mobile  lg:text-xs font-normal lg:leading-details-title ${
               selected
                 ? "text-card-details-title"
                 : "text-card-details-title-gray"
@@ -88,10 +94,30 @@ const Card = ({
         </div>
         <div className="mr-4 flex items-center justify-center">
           <div className="w-card-ellipse-mobile lg:w-full">
-            {selected ? <EllipseIcon aria-label="Ellipse Icon" /> : <EllipseGrayIcon aria-label="Ellipse Gray Icon" />}
+            {selected ? (
+              <EllipseIcon
+                aria-label="Ellipse Icon"
+                className="w-card-ellipse-mobile lg:w-full"
+              />
+            ) : (
+              <EllipseGrayIcon
+                aria-label="Ellipse Gray Icon"
+                className="w-card-ellipse-mobile lg:w-full"
+              />
+            )}
           </div>
           <div className="-ml-7 lg:-ml-4 w-card-ellipse-mobile lg:w-full">
-            {selected ? <EllipseIcon aria-label="Ellipse Icon" /> : <EllipseGrayIcon aria-label="Ellipse Gray Icon" />}
+            {selected ? (
+              <EllipseIcon
+                aria-label="Ellipse Icon"
+                className="w-card-ellipse-mobile lg:w-full"
+              />
+            ) : (
+              <EllipseGrayIcon
+                aria-label="Ellipse Gray Icon"
+                className="w-card-ellipse-mobile lg:w-full"
+              />
+            )}
           </div>
         </div>
       </div>
