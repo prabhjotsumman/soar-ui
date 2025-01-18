@@ -1,10 +1,10 @@
 import React, { useState } from "react";
+import { Outlet } from "react-router-dom";
+
 import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
 
-const DashboardLayout: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => {
+const DashboardLayout: React.FC<{ children?: React.ReactNode }> = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -18,10 +18,13 @@ const DashboardLayout: React.FC<{ children: React.ReactNode }> = ({
       {/* Main Content */}
       <div className="flex flex-1 flex-col w-screen max-w-screen">
         {/* Navbar */}
-        <Navbar onHamburgerClick={toggleSidebar} sidebarOpen={isOpen}/>
+        <Navbar onHamburgerClick={toggleSidebar} sidebarOpen={isOpen} />
 
         {/* Page Content */}
-        <main className="p-6 overflow-auto">{children}</main>
+        <main className="p-6 overflow-auto">
+          {" "}
+          <Outlet />
+        </main>
         {isOpen && (
           <div
             className="fixed inset-0 bg-black opacity-50 z-40 lg:hidden ease-in-out duration-300"

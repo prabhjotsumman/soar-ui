@@ -1,18 +1,29 @@
-import DashboardOverview from "./pages/DashboardOverview";
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+import DashboardOverview from "./pages/DashboardOverview";
+import DashboardLayout from "./layouts/DashboardLayout";
+import Settings from "./pages/settings/Settings";
+
 import "./App.css";
 
 const App: React.FC = () => {
   return (
     <Router>
-      <div className="flex w-full overflow-hidden max-w-full">
-
+      <div className="flex w-full h-full overflow-hidden max-w-full">
         {/* Main Content */}
-        <div className="flex bg-gray-100 w-full">
+        <div className="flex bg-gray-100 w-full max-h-full">
           <Routes>
-            <Route path="/" element={<DashboardOverview />} />
-            {/* <Route path="/settings" element={<Settings />} /> */}
+            {/* Dashboard Layout with nested routes */}
+            <Route path="/" element={<DashboardLayout />}>
+              <Route index element={<DashboardOverview />} />
+              <Route path="settings" element={<Settings />} />
+              <Route
+                path="transactions"
+                element={<div>Transactions Page</div>}
+              />
+              {/* Add other routes as needed */}
+            </Route>
           </Routes>
         </div>
       </div>

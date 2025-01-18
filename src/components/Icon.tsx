@@ -24,6 +24,7 @@ import ellipseGrayIcon from "../assets/icons/ellipse-gray-icon.svg";
 import chevronIcon from "../assets/icons/chevron.svg";
 import sendIcon from "../assets/icons/send.svg";
 import hamburgerIcon from "../assets/icons/hamburger.svg";
+import pencilIcon from "../assets/icons/pencil.svg";
 
 import LogoIcon from "../assets/icons/logo.svg";
 
@@ -199,6 +200,13 @@ const Icon: React.FC<{ name: string; className?: string }> = ({
         src={hamburgerIcon}
         className={`fill-current ${className}`}
         alt="hamburger icon"
+      />
+    ),
+    pencil: (
+      <img
+        src={pencilIcon}
+        className={`fill-current ${className}`}
+        alt="pencil icon"
       />
     ),
   };

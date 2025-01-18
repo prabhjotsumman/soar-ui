@@ -9,7 +9,7 @@ interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({ onHamburgerClick, sidebarOpen }) => {
   return (
-    <header className=" bg-white shadow-md">
+    <header className=" bg-white shadow-md z-40">
       <div className="flex items-center justify-between h-navbar-height px-6">
         {!sidebarOpen && (
           <div

@@ -1,26 +1,42 @@
 import React from "react";
 import Icon from "./Icon";
+import { Link, useLocation } from "react-router-dom";
+import { SIDEBAR_ICONS, Icons } from "../assets/SidebarIcons";
 
 // SidebarItem component to handle each sidebar item with icon and text
 const SidebarItem: React.FC<{
-  icon: string;
   label: string;
-  link: string;
+  link?: string;
   className?: string;
-}> = ({ icon, label, link, className }) => (
-  <li className={`flex hover:text-sidebar-text-selected ${className} p-2 md:p-2.5 lg:p-2.5`}>
-    <Icon name={icon} />
-    <a className="ml-4 text-sm lg:text-lg font-normal font-inter" href={link}>
-      {label}
-    </a>
-  </li>
-);
+  isActive?: boolean;
+  IconComponent: React.ElementType;
+}> = ({ label, link = "/", className, isActive = false, IconComponent }) => {
+  return (
+    <li
+      className={`flex hover:text-sidebar-text-selected ${className} p-2 md:p-2.5 lg:p-2.5`}
+    >
+      <IconComponent
+        color={isActive ? `black` : undefined}
+        className="hover:text-black"
+      />
+      <Link
+        className={`ml-4 text-sm lg:text-lg font-normal font-inter ${
+          isActive ? "text-black font-medium" : ""
+        }`}
+        to={link}
+      >
+        {label}
+      </Link>
+    </li>
+  );
+};
 
 interface SidebarProps {
   isOpen: boolean;
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
+  const location = useLocation();
 
   return (
     <div className="relative z-50">
@@ -36,43 +52,48 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
           </h1>
           <ul className="space-y-4 text-sidebar-text">
             <SidebarItem
-              icon="home"
               label="Dashboard"
-              className="text-black"
-              link="/dashboard"
+              isActive={location.pathname === "/"}
+              IconComponent={Icons[SIDEBAR_ICONS.Home]}
             />
             <SidebarItem
-              icon="transfer"
               label="Transactions"
-              link="/transactions"
+              IconComponent={Icons[SIDEBAR_ICONS.Transfer]}
             />
-            <SidebarItem icon="user" label="Accounts" link="/accounts" />
             <SidebarItem
-              icon="investment"
+              label="Accounts"
+              IconComponent={Icons[SIDEBAR_ICONS.User]}
+            />
+            <SidebarItem
               label="Investments"
-              link="/investments"
+              IconComponent={Icons[SIDEBAR_ICONS.EconomicInvestment]}
             />
             <SidebarItem
-              icon="credit"
               label="Credit Cards"
-              link="/credit-cards"
+              IconComponent={Icons[SIDEBAR_ICONS.CreditCard]}
             />
-            <SidebarItem icon="loan" label="Loans" link="/loans" />
-            <SidebarItem icon="service" label="Services" link="/services" />
             <SidebarItem
-              icon="econometrics"
+              label="Loans"
+              link="/loans"
+              IconComponent={Icons[SIDEBAR_ICONS.Loan]}
+            />
+            <SidebarItem
+              label="Services"
+              IconComponent={Icons[SIDEBAR_ICONS.Service]}
+            />
+            <SidebarItem
               label="My Privileges"
-              link="/privileges"
+              IconComponent={Icons[SIDEBAR_ICONS.Econometrics]}
             />
             <SidebarItem
-              icon="settingsSolid"
               label="Setting"
               link="/settings"
+              isActive={location.pathname === "/settings"}
+              IconComponent={Icons[SIDEBAR_ICONS.SettingsSolid]}
             />
           </ul>
         </div>
       </div>
-
     </div>
   );
 };

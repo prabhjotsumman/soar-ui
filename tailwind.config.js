@@ -9,6 +9,7 @@ export default {
       colors: {
         primary: "#1D4ED8",
         secondary: "#9333EA",
+        charcoal: "#232323",
 
         // Sidebar
         "sidebar-text": "#B1B1B1",
@@ -28,6 +29,8 @@ export default {
 
         //input
         "input-field": "#EDF1F7",
+        "input-placeholder":  "#718EBF",
+        
       },
       spacing: {
         // Cards
@@ -82,6 +85,15 @@ export default {
         "avatar-card-name-margin-top": "0.938rem", //15px
         "avatar-image": "4.375rem", //70px
 
+        //Settings Page
+        "settings-profile-pic": "5.625rem", //90px
+        "settings-tab-padding": "1.875rem", //30px
+
+        //Tabs
+        "tabs-top-padding": "2.563rem", // 41px
+
+        "save-btn-x-padding": "4.625rem", //74px
+
         // MOBILE VERSION ***********************************
         container: "20.313rem", //325px
 
@@ -105,6 +117,13 @@ export default {
 
         // Icons & Profile
         "icon-dimensions-mobile": "2.5rem", // 40px
+
+        //Settings Page
+        "settings-profile-pic-mobile": "6.25rem", //100px
+
+        //Form
+        "form-gap": "1.375rem", //22px
+        "input-field-x-padding-mobile": "0.938rem" //15px,
       },
       fontFamily: {
         inter: ["Inter", "sans-serif"],
@@ -118,6 +137,8 @@ export default {
         // MOBILE
         "card-details-title-mobile": "0.625rem", //10px
         "card-details-details-mobile": "0.813rem", //13px"
+
+        "tabs-heading-mobile": "0.813rem", //13px
       },
       lineHeight: {
         "heading-one": "2.118rem", // 33.89px
