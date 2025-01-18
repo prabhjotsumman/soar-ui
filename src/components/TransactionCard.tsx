@@ -1,8 +1,7 @@
 import React from "react";
-// import { ICONS } from "../../assets/icons/icons";
 import { formatCurrency } from "../utils";
-import Icon from "./Icon";
-// import Icon from "../Icon/Icon";
+import FinanceIcon from "../assets/icons/FinanceIcon";
+import DollarIcon from "../assets/icons/DollarIcon";
 
 interface TransactionCardProps {
   name: string;
@@ -17,26 +16,22 @@ const TransactionCard = ({
   source,
   date,
 }: TransactionCardProps) => {
-  // const IconBg = {
-  //   [ICONS.CARD]: "bg-amber-light",
-  //   [ICONS.PAYPAL]: "bg-purple-light",
-  //   [ICONS.DOLLAR]: "bg-green-light",
-  // };
-
   return (
     <div className="flex flex-row  items-center  ">
       <div className="rounded-full w-icon-width h-icon-height bg-orange-50 mr-4 flex items-center justify-center">
         {source === "card" ? (
-          <Icon name="finance" />
+          <FinanceIcon />
         ) : source === "person" ? (
-          <Icon name="dollar" />
+          <DollarIcon />
         ) : (
-          <Icon name="dollar" />
+          <DollarIcon />
         )}
       </div>
       <div className="mx-2 grow">
         <p className="font-medium text-base">{name}</p>
-        <p className="text-date-light-blue text-card-details font-normal">{date}</p>
+        <p className="text-date-light-blue text-card-details font-normal">
+          {date}
+        </p>
       </div>
       <div
         className={`${

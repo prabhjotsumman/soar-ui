@@ -1,5 +1,8 @@
 import React from "react";
-import Icon from "./Icon";
+import ChipIcon from "../assets/icons/ChipIcon";
+import ChipBlackIcon from "../assets/icons/ChipBlackIcon";
+import EllipseIcon from "../assets/icons/EllipseIcon";
+import EllipseGrayIcon from "../assets/icons/EllipseGrayIcon";
 
 interface CardProps {
   balance: string;
@@ -41,9 +44,7 @@ const Card = ({
             ${balance}
           </p>
         </div>
-        <div className="">
-          <Icon name={selected ? "chip" : "chipBlack"} />
-        </div>
+        <div className="">{selected ? <ChipIcon /> : <ChipBlackIcon />}</div>
       </div>
       <div className="flex pt-6 md:pt-8 lg:pt-8">
         <div>
@@ -83,12 +84,12 @@ const Card = ({
         <div className="font-lato text-card-details md:text-card-number lg:text-card-number font-normal flex items-center">
           {cardNumber}
         </div>
-        <div className="mr-4 flex ">
+        <div className="mr-4 flex items-center justify-center">
           <div className="w-card-ellipse-mobile lg:w-full">
-            <Icon name={selected ? "ellipse" : "ellipseGray"} />
+            {selected ? <EllipseIcon /> : <EllipseGrayIcon />}
           </div>
           <div className="-ml-7 lg:-ml-4 w-card-ellipse-mobile lg:w-full">
-            <Icon name={selected ? "ellipse" : "ellipseGray"} />
+            {selected ? <EllipseIcon /> : <EllipseGrayIcon />}
           </div>
         </div>
       </div>

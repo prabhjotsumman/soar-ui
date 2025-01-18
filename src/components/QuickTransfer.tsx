@@ -1,11 +1,12 @@
 import React from "react";
 
 import AvatarCard from "../components/AvatarCard";
-import Icon from "../components/Icon";
 
 import user1 from "../assets/users/user1.png";
 import user2 from "../assets/users/user2.png";
 import user3 from "../assets/users/user3.png";
+import ChevronIcon from "../assets/icons/ChevronIcon";
+import SendIcon from "../assets/icons/SendIcon";
 
 const QuickTransfer = () => {
   return (
@@ -21,7 +22,7 @@ const QuickTransfer = () => {
         <AvatarCard name="Randy Press" designation="Director" picture={user2} />
         <AvatarCard name="WorkMan" designation="Designer" picture={user3} />
         <div className="w-icon-dimensions-mobile h-icon-dimensions-mobile lg:w-icon-dimensions lg:h-icon-dimensions flex items-center justify-center radius-full rounded-full shadow-xl ">
-          <Icon name="chevron" />
+          <ChevronIcon/>
         </div>
       </div>
 
@@ -44,7 +45,7 @@ const QuickTransfer = () => {
               className={`bg-black text-white rounded-full px-6 h-full flex items-center justify-center hover:bg-slate-800`}
             >
               <div className="mr-2.5 text-sm lg:text-base">Send</div>
-              <Icon name="send" />
+              <SendIcon/>
             </button>
           </div>
         </div>
