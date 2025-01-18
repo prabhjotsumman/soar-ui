@@ -1,20 +1,42 @@
 import React, { useEffect, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
-import Icon from "../../components/Icon";
-import { ProfileFormFields } from "../../constants";
 
-type FormData = {
-  name: string;
-  username: string;
-  email: string;
-  password: string;
-  dob: string;
-  presentAddress: string;
-  permanentAddress: string;
-  city: string;
-  postalCode: string;
-  country: string;
+import Icon from "../../components/Icon";
+import { PROFILE_FORM_FIELDS } from "./constants";
+
+import { EditProfileFormDataType, ProfileFormFieldType } from "../../types";
+
+const getProfileData = (): EditProfileFormDataType | null => {
+  const storedData = localStorage.getItem("profileData");
+  return storedData ? JSON.parse(storedData) : null;
 };
+
+const saveProfileData = (data: EditProfileFormDataType & { profilePic: string | null }) => {
+  localStorage.setItem("profileData", JSON.stringify(data));
+  window.dispatchEvent(new Event("storage"));
+};
+
+const FormField: React.FC<{
+  field: ProfileFormFieldType;
+  register: ReturnType<typeof useForm<EditProfileFormDataType>>["register"]; // Updated typing
+  error?: string;
+}> = ({ field, register, error }) => (
+  <div>
+    <label className="block text-charcoal text-base mb-1" htmlFor={field.name}>
+      {field.label}
+    </label>
+    <input
+      id={field.name}
+      type={field.type}
+      aria-label={`Enter ${field.label}`}
+      {...register(field.name as keyof EditProfileFormDataType, { required: field.required })}
+      className={`w-full py-3 lg:py-4 px-input-field-x-padding-mobile border border-card-border rounded-2xl text-input-placeholder text-card-details font-normal leading-4 ${
+        error ? "border-red-500" : "border-gray-300"
+      }`}
+    />
+    {error && <span className="text-red-500 text-card-details">{error}</span>}
+  </div>
+);
 
 const EditProfile = () => {
   const [profilePic, setProfilePic] = useState<string | null>(null);
@@ -24,28 +46,25 @@ const EditProfile = () => {
     handleSubmit,
     setValue,
     formState: { errors },
-  } = useForm<FormData>();
+  } = useForm<EditProfileFormDataType>();
 
   useEffect(() => {
-    const storedData = localStorage.getItem("profileData");
-    if (storedData) {
-      const parsedData = JSON.parse(storedData);
-      Object.keys(parsedData).forEach((key) => {
+    const profileData = getProfileData();
+    if (profileData) {
+      Object.keys(profileData).forEach((key) => {
         if (key === "profilePic") {
-          setProfilePic(parsedData[key]);
+          setProfilePic(profileData[key]);
         } else {
-          setValue(key as keyof FormData, parsedData[key]);
+          setValue(key as keyof EditProfileFormDataType, profileData[key]);
         }
       });
     }
   }, [setValue]);
 
-  const onSubmit: SubmitHandler<FormData> = (data) => {
-    console.log("Form Data:", data);
+  const onSubmit: SubmitHandler<EditProfileFormDataType> = (data) => {
     const profileData = { ...data, profilePic };
-    localStorage.setItem("profileData", JSON.stringify(profileData));
+    saveProfileData(profileData);
     alert("Your data has been saved.");
-    window.dispatchEvent(new Event("storage"));
   };
 
   const handleProfilePicChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -64,7 +83,7 @@ const EditProfile = () => {
         <div className="relative w-settings-profile-pic-mobile h-settings-profile-pic-mobile lg:h-settings-profile-pic lg:w-settings-profile-pic">
           <img
             src={profilePic || "https://via.placeholder.com/150"}
-            alt="Photo"
+            alt="Profile Picture"
             className="w-full h-full rounded-full object-cover"
           />
           <input
@@ -72,6 +91,7 @@ const EditProfile = () => {
             accept="image/*"
             className="absolute inset-0 opacity-0 cursor-pointer"
             onChange={handleProfilePicChange}
+            aria-label="Change profile picture"
           />
           <button
             type="button"
@@ -87,28 +107,15 @@ const EditProfile = () => {
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="grid grid-cols-1 sm:grid-cols-2 gap-y-form-gap gap-x-7"
+          aria-label="Edit Profile Form"
         >
-          {ProfileFormFields.map(({ label, name, type, ...rest }) => (
-            <div key={name}>
-              <label className="block text-charcoal text-base mb-1">
-                {label}
-              </label>
-              <input
-                type={type}
-                aria-label={`Enter ${label}`}
-                {...register(name as keyof FormData, rest)}
-                className={`w-full py-3 lg:py-4 px-input-field-x-padding-mobile border border-card-border rounded-2xl text-input-placeholder text-card-details font-normal leading-4 ${
-                  errors[name as keyof FormData]
-                    ? "border-red-500"
-                    : "border-gray-300"
-                }`}
-              />
-              {errors[name as keyof FormData] && (
-                <span className="text-red-500 text-card-details">
-                  {errors[name as keyof FormData]?.message}
-                </span>
-              )}
-            </div>
+          {PROFILE_FORM_FIELDS.map((field) => (
+            <FormField
+              key={field.name}
+              field={field}
+              register={register}
+              error={errors[field.name as keyof EditProfileFormDataType]?.message}
+            />
           ))}
 
           {/* Save Button */}

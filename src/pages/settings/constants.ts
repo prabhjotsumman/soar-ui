@@ -1,4 +1,6 @@
-export const ProfileFormFields = [
+import { ProfileFormFieldType } from "../../types";
+
+export const PROFILE_FORM_FIELDS: ProfileFormFieldType[] = [
   {
     label: "Your Name",
     name: "name",
