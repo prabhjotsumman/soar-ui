@@ -1,5 +1,4 @@
 import React from "react";
-import Card from "../components/Card";
 import RecentTransactions from "../components/RecentTransactions";
 import BarChart from "../components/charts/BarChart";
 import PieChart from "../components/charts/PieChart";
@@ -7,6 +6,7 @@ import LineChart from "../components/charts/LineChart";
 import QuickTransfer from "../components/QuickTransfer";
 
 import useScreenSize from "../hooks/useScreenSize";
+import MyCardsSection from "../components/MyCardsSection";
 
 const SectionHeading = ({ title, className = "" }) => {
   return (
@@ -31,28 +31,12 @@ const DashboardOverview = () => {
         >
           <div className="flex justify-between">
             <SectionHeading title="My Cards" />
-            <SectionHeading title="See All" className="text-lg hover:text-black hover:cursor-pointer hover:bg-orange-50" />
-          </div>
-
-          <div
-            className="flex flex-row justify-between overflow-x-scroll"
-            role="list"
-          >
-            <Card
-              selected
-              balance="5,756"
-              cardHolder="Eddy Cusuma"
-              validThru="12/22"
-              cardNumber="3778 **** **** 1234"
-            />
-
-            <Card
-              balance="5,756"
-              cardHolder="Eddy Cusuma"
-              validThru="12/22"
-              cardNumber="3778 **** **** 1234"
+            <SectionHeading
+              title="See All"
+              className="text-lg hover:text-black hover:cursor-pointer hover:bg-orange-50"
             />
           </div>
+          <MyCardsSection />
         </section>
 
         <section
