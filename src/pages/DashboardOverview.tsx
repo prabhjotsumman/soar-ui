@@ -31,7 +31,7 @@ const DashboardOverview = () => {
         >
           <div className="flex justify-between">
             <SectionHeading title="My Cards" />
-            <SectionHeading title="See All" className="text-lg" />
+            <SectionHeading title="See All" className="text-lg hover:text-black hover:cursor-pointer hover:bg-orange-50" />
           </div>
 
           <div

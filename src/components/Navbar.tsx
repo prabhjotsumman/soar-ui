@@ -11,9 +11,14 @@ import {
 interface NavbarProps {
   onHamburgerClick: () => void;
   sidebarOpen: boolean;
+  title?: string;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ onHamburgerClick, sidebarOpen }) => {
+const Navbar: React.FC<NavbarProps> = ({
+  onHamburgerClick,
+  sidebarOpen,
+  title = "Overview",
+}) => {
   return (
     <header className="bg-white shadow-md z-40" role="banner">
       <div className="flex items-center justify-between h-navbar-height px-6">
@@ -30,7 +35,7 @@ const Navbar: React.FC<NavbarProps> = ({ onHamburgerClick, sidebarOpen }) => {
         <div className="flex items-center space-x-4">
           {/* Page Title */}
           <h1 className="text-heading-one font-semibold text-gray-800 font-inter text-2xl leading-[2.118rem] underline-from-font decoration-skip-ink-none">
-            Overview
+            {title}
           </h1>
         </div>
 
