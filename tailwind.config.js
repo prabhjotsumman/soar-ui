@@ -124,6 +124,7 @@ export default {
 
         //recent Transaction
         "recent-transaction-icon": '3.125rem', //50px
+        "recent-transaction-card-padding-mobile": '1.125rem', //18px
 
         // Icons & Profile
         "icon-dimensions-mobile": "2.5rem", // 40px

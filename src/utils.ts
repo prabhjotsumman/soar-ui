@@ -70,11 +70,21 @@ export const generateRandomCreditCardData = () => {
 export const generateRandomNumbersArray = (
   count: number,
   min = 120,
-  max = 800
+  max = 800,
+  maxSum?: number
 ): number[] => {
   const getRandomNumber = () =>
     Math.floor(Math.random() * (max - min + 1)) + min;
 
-  const randomNumbers = Array.from({ length: count }, () => getRandomNumber());
+  let randomNumbers = Array.from({ length: count }, () => getRandomNumber());
+
+  if (maxSum !== undefined) {
+    let currentSum = randomNumbers.reduce((acc, num) => acc + num, 0);
+    while (currentSum !== maxSum) {
+      randomNumbers = Array.from({ length: count }, () => getRandomNumber());
+      currentSum = randomNumbers.reduce((acc, num) => acc + num, 0);
+    }
+  }
+
   return randomNumbers;
 };
