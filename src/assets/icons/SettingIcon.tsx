@@ -1,5 +1,3 @@
-import React from "react";
-
 const SettingsSolidIcon = ({ color = "#B1B1B1" }) => (
   <svg
     width="25"
