@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import AvatarCard from "../components/AvatarCard";
 import { user1, user2, user3 } from "../assets/images";
 import { ChevronIcon, SendIcon } from "../assets/icons";
 
 const QuickTransfer = () => {
+  const [feedback, setFeedback] = useState<string | null>(null);
+
+  const handleSendClick = () => {
+    // Show feedback message
+    setFeedback("Money sent!");
+
+    // Hide feedback after 3 seconds
+    setTimeout(() => {
+      setFeedback(null);
+    }, 3000);
+  };
+
   return (
     <div
       className="bg-white rounded-3xl md:min-w-quick-transfer-card-container-width
@@ -63,14 +75,22 @@ const QuickTransfer = () => {
           />
 
           {/* Send Button */}
-          <div className="absolute right-0 h-full">
-            <button
-              aria-label="Send money"
-              className="bg-black text-white rounded-full px-6 h-full flex items-center justify-center hover:bg-slate-800"
-            >
-              <div className="mr-2.5 text-sm lg:text-base">Send</div>
-              <SendIcon />
-            </button>
+          <div className="relative">
+            {/* Send Button */}
+            <div className="absolute right-0 h-full">
+              <button
+                aria-label="Send money"
+                onClick={handleSendClick}
+                className={` text-white rounded-full px-6 h-full flex items-center justify-center hover:bg-slate-800 ${
+                  feedback ? "bg-green-500 cursor-not-allowed hover:bg-green-500 animate-pulse" : "bg-black"
+                }`}
+              >
+                <div className="mr-2.5 text-sm lg:text-base">
+                  {feedback ? "Sent!" : "Send"}
+                </div>
+                <SendIcon />
+              </button>
+            </div>
           </div>
         </div>
       </div>

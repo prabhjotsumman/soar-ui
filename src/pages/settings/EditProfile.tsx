@@ -5,11 +5,22 @@ import FormField from "./FormField";
 
 import { PROFILE_FORM_FIELDS } from "./constants";
 import { EditProfileFormDataType } from "../../types";
-import { getProfileData, saveProfileData } from '../../utils/profileUtils';
+import { getProfileData, saveProfileData } from "../../utils/profileUtils";
 import PencilIcon from "../../assets/icons/PencilIcon";
 
 const EditProfile = () => {
   const [profilePic, setProfilePic] = useState<string | null>(null);
+  const [feedback, setFeedback] = useState<string | null>(null);
+
+  const handleSaveClick = () => {
+    // Show feedback message
+    setFeedback("Money sent!");
+
+    // Hide feedback after 3 seconds
+    setTimeout(() => {
+      setFeedback(null);
+    }, 3000);
+  };
 
   const {
     register,
@@ -34,7 +45,7 @@ const EditProfile = () => {
   const onSubmit: SubmitHandler<EditProfileFormDataType> = (data) => {
     const profileData = { ...data, profilePic };
     saveProfileData(profileData);
-    alert("Your data has been saved.");
+    handleSaveClick();
   };
 
   const handleProfilePicChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -69,7 +80,7 @@ const EditProfile = () => {
             className="absolute bottom-0 -right-1 bg-black p-1 rounded-full"
           >
             {/* <Icon name="pencil" /> */}
-            <PencilIcon/>
+            <PencilIcon />
           </button>
         </div>
       </div>
@@ -85,7 +96,9 @@ const EditProfile = () => {
               key={field.name}
               field={field}
               register={register}
-              error={errors[field.name as keyof EditProfileFormDataType]?.message}
+              error={
+                errors[field.name as keyof EditProfileFormDataType]?.message
+              }
             />
           ))}
 
@@ -94,9 +107,11 @@ const EditProfile = () => {
             <button
               type="submit"
               aria-label="Save profile information"
-              className="bg-black text-white px-save-btn-x-padding leading-5 py-2.5 lg:py-3.5 text-card-details lg:text-lg rounded-2xl hover:bg-slate-800 w-full md:w-fit"
+              className={`${
+                feedback ? "bg-green-500 animate-pulse hover:bg-green-500" : " bg-black hover:bg-slate-800"
+              } text-white px-save-btn-x-padding leading-5 py-2.5 lg:py-3.5 text-card-details lg:text-lg rounded-2xl  w-full md:w-fit`}
             >
-              Save
+              {feedback ? "Saved!" : "Save"}
             </button>
           </div>
         </form>
