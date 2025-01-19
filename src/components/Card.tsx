@@ -27,7 +27,13 @@ const Card = ({
 
   return (
     <div
-      className={`relative px-5 py-4 md:p-6 lg:p-6 rounded-3xl w-card-width-mobile h-card-height-mobile lg:w-card-width lg:h-card-height ${selectedBg}`}
+      className={`relative px-5 py-4 md:p-6 lg:p-6 rounded-3xl 
+        min-w-card-width-mobile 
+        w-card-width-mobile h-card-height-mobile 
+        sm:w-card-width-mobile sm:h-card-height-mobile 
+        md:w-card-width md:h-card-height md:min-w-card-width md:min-h-card-height
+        lg:w-card-width lg:h-card-height 
+        ${selectedBg}`}
       role="region"
       aria-label={`Card for ${cardHolder}`}
       tabIndex={0}

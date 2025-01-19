@@ -6,7 +6,9 @@ import { ChevronIcon, SendIcon } from "../assets/icons";
 const QuickTransfer = () => {
   return (
     <div
-      className="bg-white px-quick-transfer-card-x-padding-mobile lg:px-quick-transfer-card-x-padding py-quick-transfer-card-y-padding-mobile lg:py-quick-transfer-card-y-padding rounded-3xl w-full"
+      className="bg-white rounded-3xl md:min-w-quick-transfer-card-container-width
+      px-quick-transfer-card-x-padding-mobile py-quick-transfer-card-y-padding-mobile 
+      lg:px-quick-transfer-card-x-padding lg:py-quick-transfer-card-y-padding "
       role="region"
       aria-labelledby="quick-transfer-title"
     >

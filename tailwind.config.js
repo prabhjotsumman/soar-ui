@@ -11,6 +11,9 @@ export default {
         secondary: "#9333EA",
         charcoal: "#232323",
 
+        //Dashboard
+        "dashboard-heading-color": "#343C6A",
+
         // Sidebar
         "sidebar-text": "#B1B1B1",
         "sidebar-text-selected": "#232323",
@@ -119,6 +122,9 @@ export default {
         "quick-transfer-card-y-padding-mobile": "1.25rem", //35px
         "quick-transfer-card-x-padding-mobile": "1.125rem", //18px
 
+        //recent Transaction
+        "recent-transaction-icon": '3.125rem', //50px
+
         // Icons & Profile
         "icon-dimensions-mobile": "2.5rem", // 40px
 
@@ -137,6 +143,7 @@ export default {
         "heading-one": "1.75rem", // 28px
         "card-details": "0.938rem", // 15px
         "card-number": "1.375rem", // 22px
+        "dashboard-headings": "1.375rem", // 22px
 
         // MOBILE
         "card-details-title-mobile": "0.625rem", //10px
@@ -148,6 +155,8 @@ export default {
         "heading-one": "2.118rem", // 33.89px
         "card-details-title": "0.9", // 14.4px
         "card-details": "1.125", // Normal line-height
+
+        "dashboard-heading-line-height": "1.664rem", // 26.63px
       },
       backgroundImage: {
         "card-gradient":

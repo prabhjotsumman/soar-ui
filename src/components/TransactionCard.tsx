@@ -17,19 +17,31 @@ const TransactionCard = ({
   date,
 }: TransactionCardProps) => {
   const IconsBg = {
-    card: 'bg-light-orange',
-    paypal: 'bg-light-purple',
-    person: 'bg-light-green'
+    card: "bg-light-orange",
+    paypal: "bg-light-purple",
+    person: "bg-light-green",
   };
 
   const getSourceIcon = (source: string) => {
     switch (source) {
       case "card":
-        return <FinanceIcon aria-label="Card Transaction" />;
+        return (
+          <FinanceIcon
+            aria-label="Card Transaction"
+          
+          />
+        );
       case "paypal":
-        return <PaypalIcon aria-label="Paypal Transaction" />;
+        return (
+          <PaypalIcon
+            aria-label="Paypal Transaction"
+          
+          />
+        );
       default:
-        return <DollarIcon aria-label="Cash Transaction" />;
+        return (
+          <DollarIcon aria-label="Cash Transaction" />
+        );
     }
   };
 
@@ -42,16 +54,26 @@ const TransactionCard = ({
         {getSourceIcon(source)}
       </div>
       <div className="mx-2 grow">
-        <p className="font-medium text-base" aria-label={`Transaction name: ${name}`}>{name}</p>
-        <p className="text-date-light-blue text-card-details font-normal" aria-label={`Transaction date: ${date}`}>
+        <p
+          className="font-medium text-sm md:text-base"
+          aria-label={`Transaction name: ${name}`}
+        >
+          {name}
+        </p>
+        <p
+          className="text-date-light-blue text-xs md:text-card-details font-normal"
+          aria-label={`Transaction date: ${date}`}
+        >
           {date}
         </p>
       </div>
       <div
         className={`${
           amount < 0 ? "text-amount-red" : "text-amount-green"
-        } font-medium text-base font-inter`}
-        aria-label={`Transaction amount: ${amount < 0 ? "-$" + -1 * amount : "+$" + formatCurrency(amount)}`}
+        } font-medium text-xs md:text-base font-inter`}
+        aria-label={`Transaction amount: ${
+          amount < 0 ? "-$" + -1 * amount : "+$" + formatCurrency(amount)
+        }`}
       >
         {amount < 0 ? "-$" + -1 * amount : "+$" + formatCurrency(amount)}
       </div>

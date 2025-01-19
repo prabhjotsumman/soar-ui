@@ -3,10 +3,12 @@ import "chartjs-plugin-datalabels";
 import { Pie } from "react-chartjs-2";
 import { Chart } from "chart.js";
 import ChartDataLabels from "chartjs-plugin-datalabels";
+import useScreenSize from "../../hooks/useScreenSize";
 // import useStore from '../../hooks/useStore';
 
 const PieChart = () => {
   const store = []; //useStore();
+  const device = useScreenSize();
   const expensesData = store?.expenses || [25, 15, 30, 30];
   const labels = ["Bill Expense", "Others", "Investment", "Entertainment"];
 
@@ -34,7 +36,7 @@ const PieChart = () => {
         clamp: true,
         color: "white",
         font: {
-          size: 16,
+          size: device === 'desktop' ? 15 : 12,
         },
         textAlign: "center",
         formatter: function (value, context) {

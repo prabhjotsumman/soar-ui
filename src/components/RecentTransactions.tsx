@@ -11,7 +11,7 @@ const RecentTransactions = () => {
   ];
 
   return (
-    <div className="bg-white rounded-3xl h-card-height p-6 flex flex-col justify-between ">
+    <div className="bg-white rounded-3xl h-card-height min-w-container p-6 flex flex-col justify-between ">
       {transactions &&
         transactions.map((transaction) => {
           return (
