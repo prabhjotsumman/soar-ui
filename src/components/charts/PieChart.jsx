@@ -4,11 +4,26 @@ import { Pie } from "react-chartjs-2";
 import { Chart } from "chart.js";
 import ChartDataLabels from "chartjs-plugin-datalabels";
 import useScreenSize from "../../hooks/useScreenSize";
-// import useStore from '../../hooks/useStore';
+
+import useStore from "../../hooks/useStore";
+
+Chart?.pluginService?.register({
+  beforeDraw: function (chart) {
+    const ctx = chart.ctx;
+    ctx.save();
+    ctx.beginPath();
+    ctx.rect(0, 0, chart.width, chart.height);
+    ctx.clip();
+  },
+  afterDraw: function (chart) {
+    chart.ctx.restore();
+  },
+});
+
 
 const PieChart = () => {
-  const store = []; //useStore();
   const device = useScreenSize();
+  const store = useStore();
   const expensesData = store?.expenses || [25, 15, 30, 30];
   const labels = ["Bill Expense", "Others", "Investment", "Entertainment"];
 
@@ -36,7 +51,7 @@ const PieChart = () => {
         clamp: true,
         color: "white",
         font: {
-          size: device === 'desktop' ? 15 : 12,
+          size: device === "desktop" ? 15 : 12,
         },
         textAlign: "center",
         formatter: function (value, context) {

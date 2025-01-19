@@ -1,8 +1,10 @@
 import Chart from "chart.js/auto";
 import { Bar } from "react-chartjs-2";
+import useStore from '../../hooks/useStore';
 
 const BarChart = ({device}) => {
-  const weeklyActivityData = null; // Replace with your data source
+  const store = useStore();
+  const weeklyActivityData = store.weeklyActivity;
   const labels = ["Sat", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri"];
 
   const withDrawData = weeklyActivityData?.withdraw || [

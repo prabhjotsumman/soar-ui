@@ -1,11 +1,10 @@
 // components/LineChart.js
 import React from "react";
 import { Line } from "react-chartjs-2";
-// import useStore from "../../hooks/useStore";
-
+import useStore from "../../hooks/useStore";
 
 function LineChart({ ...props }) {
-  const store = null; //useStore();
+  const store = useStore(); //useStore();
   const balanceHistoryData = store?.balanceHistory || [
     120, 350, 210, 450, 800, 233, 600, 210, 610,
   ];
