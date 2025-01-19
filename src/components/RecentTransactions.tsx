@@ -1,32 +1,30 @@
 import React from "react";
 import TransactionCard from "./TransactionCard";
-// import useStore from "../hooks/useStore";
+import useStore from "../hooks/useStore";
 
 const RecentTransactions = () => {
-  // const store = useStore();
-  const transactions = [
-    { id: 1, amount: -850, source: "card", date: "28 January 2021" },
-    { id: 2, amount: 2500, source: "person", date: "28 January 2021" },
-    { id: 3, amount: 5400, source: "paypal", date: "28 January 2021" },
-  ];
+  const store = useStore();
+  const transactions = store?.transactions || [];
 
   return (
-    <div className="bg-white rounded-3xl h-card-height min-w-container p-6 flex flex-col justify-between ">
+    <div className="bg-white rounded-3xl h-card-height min-w-container p-recent-transaction-card-padding-mobile md:p-6 space-y-2.5 flex flex-col justify-between overflow-auto">
+      {transactions?.length === undefined && <div className="flex items-center justify-center p-4 font-medium">Loading...</div>}
+      {transactions?.length === 0 && <div className="flex items-center justify-center p-4 font-medium">No Recent Transactions.</div>}
       {transactions &&
         transactions.map((transaction) => {
           return (
             <TransactionCard
-              key={transaction.id}
+              key={transaction?.id + transaction?.amount}
               name={(() => {
-                if (transaction.amount < 0) {
-                  return `Debited by ${transaction.source}`;
+                if (transaction?.amount < 0) {
+                  return `Debited by ${transaction?.source}`;
                 } else {
-                  return `Credited by ${transaction.source}`;
+                  return `Credited by ${transaction?.source}`;
                 }
               })()}
-              source={transaction.source}
-              amount={transaction.amount}
-              date={transaction.date}
+              source={transaction?.source}
+              amount={transaction?.amount}
+              date={transaction?.date}
             />
           );
         })}
