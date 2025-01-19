@@ -1,5 +1,3 @@
-import React from "react";
-
 const EditSecurity = () => {
   return (
     <div className="w-full items-center mx-auto bg-white p-6 text-center">

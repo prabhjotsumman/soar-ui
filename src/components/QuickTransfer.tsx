@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import AvatarCard from "../components/AvatarCard";
-import { user1, user2, user3 } from "../assets/images";
 import { ChevronIcon, SendIcon } from "../assets/icons";
+import { user1, user2, user3 } from "../assets/images";
 
 const QuickTransfer = () => {
   const [feedback, setFeedback] = useState<string | null>(null);
@@ -82,7 +82,9 @@ const QuickTransfer = () => {
                 aria-label="Send money"
                 onClick={handleSendClick}
                 className={` text-white rounded-full px-6 h-full flex items-center justify-center hover:bg-slate-800 ${
-                  feedback ? "bg-green-500 cursor-not-allowed hover:bg-green-500 animate-pulse" : "bg-black"
+                  feedback
+                    ? "bg-green-500 cursor-not-allowed hover:bg-green-500 animate-pulse"
+                    : "bg-black"
                 }`}
               >
                 <div className="mr-2.5 text-sm lg:text-base">

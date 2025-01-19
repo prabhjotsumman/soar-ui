@@ -46,6 +46,8 @@ const Navbar: React.FC<NavbarProps> = ({
               <SearchIcon />
             </div>
             <input
+              name="search-bar"
+              id="search-bar"
               type="text"
               placeholder="Search for something"
               className="pl-12 pr-4 py-2 w-full h-search-height bg-gray-100 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -73,6 +75,7 @@ const Navbar: React.FC<NavbarProps> = ({
           <div>
             <img
               src={profilePic}
+              loading="lazy"
               alt="Profile"
               className="w-profile-width-mobile h-profile-width-mobile lg:w-profile-width lg:h-profile-height rounded-full object-cover cursor-pointer"
             />
@@ -85,6 +88,8 @@ const Navbar: React.FC<NavbarProps> = ({
             <SearchIcon />
           </div>
           <input
+            name="search-bar-mobile"
+            id="search-bar-mobile"
             type="text"
             placeholder="Search for something"
             className="pl-12 pr-4 py-2 w-full h-search-height bg-gray-100 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500"

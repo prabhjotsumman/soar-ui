@@ -26,5 +26,6 @@ export type ProfileFormFieldType = {
     city: string;
     postalCode: string;
     country: string;
+    profilePic?:string;
   };
   

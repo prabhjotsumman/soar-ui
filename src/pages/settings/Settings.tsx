@@ -1,4 +1,3 @@
-import React from "react";
 import Tabs from "../../components/common/Tabs";
 import EditPreferences from "./EditPreferences";
 import EditProfile from "./EditProfile";
@@ -9,7 +8,7 @@ const Settings = () => {
   const content = [<EditProfile />, <EditPreferences />, <EditSecurity />];
 
   return (
-    <div className="bg-white rounded-3xl p-5 md:p-settings-tab-padding lg:p-settings-tab-padding w-ful border-2">
+    <div className="bg-white rounded-3xl p-5 md:p-settings-tab-padding lg:p-settings-tab-padding w-full border-2">
       <Tabs tabs={tabs} content={content} />
     </div>
   );

@@ -1,12 +1,12 @@
 import axios from "axios";
+
 import { useState, useEffect } from "react";
 import {
-  User,
   mockAPI,
-  CardDetails,
-  Transaction,
   mockAPICalls,
 } from "../api/api";
+
+import { User, CardDetails, Transaction } from "../api/types";
 
 const useStore = () => {
   const [loading, setLoading] = useState(false);

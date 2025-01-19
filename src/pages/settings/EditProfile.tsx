@@ -8,6 +8,11 @@ import { EditProfileFormDataType } from "../../types";
 import { getProfileData, saveProfileData } from "../../utils/profileUtils";
 import PencilIcon from "../../assets/icons/PencilIcon";
 
+interface ProfileDataType {
+  profilePic: string;
+  [key: string]: string; 
+}
+
 const EditProfile = () => {
   const [profilePic, setProfilePic] = useState<string | null>(null);
   const [feedback, setFeedback] = useState<string | null>(null);
@@ -30,7 +35,7 @@ const EditProfile = () => {
   } = useForm<EditProfileFormDataType>();
 
   useEffect(() => {
-    const profileData = getProfileData();
+    const profileData: ProfileDataType | null = getProfileData();
     if (profileData) {
       Object.keys(profileData).forEach((key) => {
         if (key === "profilePic") {
@@ -64,6 +69,7 @@ const EditProfile = () => {
         <div className="relative w-settings-profile-pic-mobile h-settings-profile-pic-mobile lg:h-settings-profile-pic lg:w-settings-profile-pic">
           <img
             src={profilePic || "https://via.placeholder.com/150"}
+            loading="lazy"
             alt="Profile Picture"
             className="w-full h-full rounded-full object-cover"
           />
@@ -90,6 +96,8 @@ const EditProfile = () => {
           onSubmit={handleSubmit(onSubmit)}
           className="grid grid-cols-1 sm:grid-cols-2 gap-y-form-gap gap-x-7"
           aria-label="Edit Profile Form"
+          id="edit-profile-form"
+          name="edit-profile-form"
         >
           {PROFILE_FORM_FIELDS.map((field) => (
             <FormField
@@ -108,7 +116,9 @@ const EditProfile = () => {
               type="submit"
               aria-label="Save profile information"
               className={`${
-                feedback ? "bg-green-500 animate-pulse hover:bg-green-500" : " bg-black hover:bg-slate-800"
+                feedback
+                  ? "bg-green-500 animate-pulse hover:bg-green-500"
+                  : " bg-black hover:bg-slate-800"
               } text-white px-save-btn-x-padding leading-5 py-2.5 lg:py-3.5 text-card-details lg:text-lg rounded-2xl  w-full md:w-fit`}
             >
               {feedback ? "Saved!" : "Save"}
