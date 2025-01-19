@@ -63,7 +63,7 @@ const Card = ({
       <div className="flex pt-6 md:pt-4 lg:pt-8">
         <div>
           <p
-            className={`font-lato text-card-details-title-mobile lg:text-xs font-normal lg:leading-details-title ${
+            className={`font-lato text-card-details-title-mobile md:text-xs font-normal lg:leading-details-title ${
               selected
                 ? "text-card-details-title"
                 : "text-card-details-title-gray"
@@ -71,13 +71,13 @@ const Card = ({
           >
             CARD HOLDER
           </p>
-          <p className="font-lato text-card-details-details-mobile lg:text-card-details">
+          <p className="font-lato text-card-details-details-mobile md:text-card-details">
             {cardHolder}
           </p>
         </div>
         <div className="ml-16">
           <p
-            className={`font-lato text-card-details-title-mobile  lg:text-xs font-normal lg:leading-details-title ${
+            className={`font-lato text-card-details-title-mobile  md:text-xs font-normal lg:leading-details-title ${
               selected
                 ? "text-card-details-title"
                 : "text-card-details-title-gray"
@@ -85,13 +85,13 @@ const Card = ({
           >
             VALID THRU
           </p>
-          <p className="font-lato text-card-details-details-mobile lg:text-card-details leading-card-details">
+          <p className="font-lato text-card-details-details-mobile md:text-card-details leading-card-details">
             {validThru}
           </p>
         </div>
       </div>
       <div
-        className={`absolute left-0 pl-6 bottom-0 py-4 px-0 align-middle flex justify-between h-card-number-height-mobile lg:h-card-number-height w-full ${
+        className={`absolute left-0 pl-6 bottom-0 py-4 px-0 align-middle flex justify-between h-card-number-height-mobile md:h-card-number-height w-full ${
           selected ? "bg-card-gradient" : "border-t border-t-card-border"
         }`}
       >
@@ -99,29 +99,29 @@ const Card = ({
           {cardNumber}
         </div>
         <div className="mr-4 flex items-center justify-center">
-          <div className="w-card-ellipse-mobile lg:w-full">
+          <div className="w-card-ellipse-mobile md:w-full">
             {selected ? (
               <EllipseIcon
                 aria-label="Ellipse Icon"
-                className="w-card-ellipse-mobile lg:w-full"
+                className="w-card-ellipse-mobile md:w-full"
               />
             ) : (
               <EllipseGrayIcon
                 aria-label="Ellipse Gray Icon"
-                className="w-card-ellipse-mobile lg:w-full"
+                className="w-card-ellipse-mobile md:w-full"
               />
             )}
           </div>
-          <div className="-ml-7 lg:-ml-4 w-card-ellipse-mobile lg:w-full">
+          <div className="-ml-7 md:-ml-4 w-card-ellipse-mobile md:w-full">
             {selected ? (
               <EllipseIcon
                 aria-label="Ellipse Icon"
-                className="w-card-ellipse-mobile lg:w-full"
+                className="w-card-ellipse-mobile md:w-full"
               />
             ) : (
               <EllipseGrayIcon
                 aria-label="Ellipse Gray Icon"
-                className="w-card-ellipse-mobile lg:w-full"
+                className="w-card-ellipse-mobile md:w-full"
               />
             )}
           </div>
