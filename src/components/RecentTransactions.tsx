@@ -1,6 +1,6 @@
-import React from "react";
 import TransactionCard from "./TransactionCard";
 import useStore from "../hooks/useStore";
+import React from "react";
 
 const RecentTransactions = () => {
   const store = useStore();
@@ -22,7 +22,7 @@ const RecentTransactions = () => {
                   return `Credited by ${transaction?.source}`;
                 }
               })()}
-              source={transaction?.source}
+              source={transaction?.source as "card" | "paypal" | "person" | undefined}
               amount={transaction?.amount}
               date={transaction?.date}
             />
@@ -32,4 +32,4 @@ const RecentTransactions = () => {
   );
 };
 
-export default RecentTransactions;
+export default React.memo(RecentTransactions);

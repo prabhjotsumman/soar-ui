@@ -16,24 +16,24 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
 }) => (
     <li
         className={`flex items-center p-2 md:p-2.5 lg:p-2.5 hover:text-sidebar-text-selected`}
-        role="menuitem"
         aria-current={isActive ? "page" : undefined}
     >
         <Icon
             color={isActive ? "black" : undefined}
             className={`hover:text-black ${isActive ? "text-black" : ""}`}
             aria-hidden="true"
+            focusable="false"
         />
         <Link
             to={link}
             className={`ml-4 text-sm lg:text-lg font-normal font-inter ${
                 isActive ? "text-black font-medium" : ""
             }`}
-            aria-label={label}
+            aria-current={isActive ? "page" : undefined}
         >
             {label}
         </Link>
     </li>
 );
 
-export default SidebarItem;
+export default React.memo(SidebarItem);

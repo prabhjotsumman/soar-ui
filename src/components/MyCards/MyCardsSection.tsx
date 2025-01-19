@@ -1,5 +1,5 @@
 import React from "react";
-import useStore from "../hooks/useStore";
+import useStore from "../../hooks/useStore";
 import Card from "./Card";
 
 const MyCardsSection = ({ ...props }) => {
@@ -26,4 +26,4 @@ const MyCardsSection = ({ ...props }) => {
   );
 };
 
-export default MyCardsSection;
+export default React.memo(MyCardsSection);

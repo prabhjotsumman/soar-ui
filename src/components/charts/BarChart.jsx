@@ -1,10 +1,11 @@
+import React from "react";
 import Chart from "chart.js/auto";
 import { Bar } from "react-chartjs-2";
 import useStore from '../../hooks/useStore';
 
 const BarChart = ({device}) => {
   const store = useStore();
-  const weeklyActivityData = store.weeklyActivity;
+  const weeklyActivityData = store?.weeklyActivity;
   const labels = ["Sat", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri"];
 
   const withDrawData = weeklyActivityData?.withdraw || [
@@ -14,6 +15,9 @@ const BarChart = ({device}) => {
     250, 120, 230, 390, 210, 230, 320,
   ];
 
+  const memoizedWithDrawData = React.useMemo(() => withDrawData, [withDrawData]);
+  const memoizedDepositedData = React.useMemo(() => depositedData, [depositedData]);
+
   const barThickness = device === 'desktop' ? 15 : 7;
   const data = {
     labels: labels,
@@ -21,7 +25,7 @@ const BarChart = ({device}) => {
       {
         label: "Withdraw",
         backgroundColor: "#232323",
-        data: withDrawData,
+        data: memoizedWithDrawData,
         borderRadius: 50,
         borderSkipped: false,
         barThickness,
@@ -29,7 +33,7 @@ const BarChart = ({device}) => {
       {
         label: "Deposit",
         backgroundColor: "#396AFF",
-        data: depositedData,
+        data: memoizedDepositedData,
         borderRadius: 50,
         borderSkipped: false,
         barThickness,
@@ -56,16 +60,16 @@ const BarChart = ({device}) => {
     },
     scales: {
       x: {
-        stacked: false, // Ensure bars are side-by-side
+        stacked: false,
         grid: {
           display: false,
         },
-        categoryPercentage: 0.5, // Adjust spacing between groups of bars
-        barPercentage: 0.9, // Adjust spacing between bars within the group
+        categoryPercentage: 0.5,
+        barPercentage: 0.9,
       },
       y: {
         ticks: {
-          maxTicksLimit: 6, // Limit the number of ticks on the Y-axis
+          maxTicksLimit: 6,
         },
         grid: {
           color: "rgba(0, 0, 0, 0.05)",
@@ -77,4 +81,4 @@ const BarChart = ({device}) => {
   return <Bar data={data} options={chartOptions} />;
 };
 
-export default BarChart;
+export default React.memo(BarChart);

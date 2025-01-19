@@ -1,25 +1,11 @@
+import React from "react";
 import "chartjs-plugin-datalabels";
-// import Chart from "chart.js/auto";
 import { Pie } from "react-chartjs-2";
 import { Chart } from "chart.js";
 import ChartDataLabels from "chartjs-plugin-datalabels";
 import useScreenSize from "../../hooks/useScreenSize";
 
 import useStore from "../../hooks/useStore";
-
-Chart?.pluginService?.register({
-  beforeDraw: function (chart) {
-    const ctx = chart.ctx;
-    ctx.save();
-    ctx.beginPath();
-    ctx.rect(0, 0, chart.width, chart.height);
-    ctx.clip();
-  },
-  afterDraw: function (chart) {
-    chart.ctx.restore();
-  },
-});
-
 
 const PieChart = () => {
   const device = useScreenSize();
@@ -45,7 +31,7 @@ const PieChart = () => {
       responsive: true,
       maintainAspectRatio: false,
       datalabels: {
-        anchor: "center", // Positions the label inside the segment
+        anchor: "center", 
         align: "center",
         clip: true,
         clamp: true,
@@ -65,7 +51,7 @@ const PieChart = () => {
     hover: {
       mode: "nearest", // Highlight the nearest segment when hovering
       onHover: function (event, chartElement) {
-        const chart = this; // Reference to the chart instance
+        const chart = this; 
         if (chartElement && chartElement.length > 0) {
           const index = chartElement[0].index; // Get the index of the hovered section
           chart.data.datasets[0].data = adjustedExpensesData.map(
@@ -80,4 +66,4 @@ const PieChart = () => {
   };
   return <Pie data={data} options={chartOptions} plugins={[ChartDataLabels]} />;
 };
-export default PieChart;
+export default React.memo(PieChart);
