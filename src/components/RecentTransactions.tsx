@@ -7,7 +7,7 @@ const RecentTransactions = () => {
   const transactions = store?.transactions || [];
 
   return (
-    <div className="bg-white rounded-3xl h-card-height min-w-container p-recent-transaction-card-padding-mobile md:p-6 space-y-2.5 flex flex-col justify-between overflow-auto">
+    <div className="bg-white rounded-3xl h-card-height min-w-container p-recent-transaction-card-padding-mobile tablet:p-6 space-y-2.5 flex flex-col justify-between overflow-auto">
       {transactions?.length === undefined && <div className="flex items-center justify-center p-4 font-medium">Loading...</div>}
       {transactions?.length === 0 && <div className="flex items-center justify-center p-4 font-medium">No Recent Transactions.</div>}
       {transactions &&

@@ -5,6 +5,10 @@ export default {
     "index.html", // Include HTML files if needed
   ],
   theme: {
+    screens: {
+      tablet: "888px",
+      lg: "1280px",
+    },
     extend: {
       colors: {
         primary: "#1D4ED8",
@@ -123,8 +127,8 @@ export default {
         "quick-transfer-card-x-padding-mobile": "1.125rem", //18px
 
         //recent Transaction
-        "recent-transaction-icon": '3.125rem', //50px
-        "recent-transaction-card-padding-mobile": '1.125rem', //18px
+        "recent-transaction-icon": "3.125rem", //50px
+        "recent-transaction-card-padding-mobile": "1.125rem", //18px
 
         // Icons & Profile
         "icon-dimensions-mobile": "2.5rem", // 40px

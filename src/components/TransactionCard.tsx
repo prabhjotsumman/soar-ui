@@ -44,14 +44,14 @@ const TransactionCard: React.FC<TransactionCardProps> = ({
         {getSourceIcon(source)}
       </div>
       <div className="mx-2 grow">
-        <p className="font-medium text-sm md:text-base" aria-label={`Transaction name: ${name}`}>
+        <p className="font-medium text-sm tablet:text-base" aria-label={`Transaction name: ${name}`}>
           {name}
         </p>
-        <p className="text-date-light-blue text-xs md:text-card-details font-normal" aria-label={`Transaction date: ${date}`}>
+        <p className="text-date-light-blue text-xs tablet:text-card-details font-normal" aria-label={`Transaction date: ${date}`}>
           {date}
         </p>
       </div>
-      <div className={`${amountClass} font-medium text-xs md:text-base font-inter`} aria-label={`Transaction amount: ${formattedAmount}`}>
+      <div className={`${amountClass} font-medium text-xs tablet:text-base font-inter`} aria-label={`Transaction amount: ${formattedAmount}`}>
         {formattedAmount}
       </div>
     </div>

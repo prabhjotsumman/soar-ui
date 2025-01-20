@@ -14,12 +14,11 @@ const DashboardLayout: React.FC<{ children?: React.ReactNode }> = () => {
   };
 
   return (
-    <div className="flex bg-gray-100  w-full max-w-full ">
-      {/* Sidebar */}
+    <div className="flex bg-gray-100 w-full">
       <Sidebar isOpen={isOpen} />
-
       {/* Main Content */}
       <div className="flex flex-1 flex-col w-screen max-w-screen">
+
         {/* Navbar */}
         <Navbar
           onHamburgerClick={toggleSidebar}

@@ -18,9 +18,11 @@ const QuickTransfer = () => {
 
   return (
     <div
-      className="bg-white rounded-3xl md:min-w-quick-transfer-card-container-width
+      className="bg-white rounded-3xl 
+       w-full
+      md:min-w-quick-transfer-card-container-width
       px-quick-transfer-card-x-padding-mobile py-quick-transfer-card-y-padding-mobile 
-      lg:px-quick-transfer-card-x-padding lg:py-quick-transfer-card-y-padding "
+      tablet:px-quick-transfer-card-x-padding tablet:py-quick-transfer-card-y-padding "
       role="region"
       aria-labelledby="quick-transfer-title"
     >
@@ -38,11 +40,12 @@ const QuickTransfer = () => {
           designation="CEO"
           picture={user1}
           selected
+          className="ml-0"
         />
         <AvatarCard name="Randy Press" designation="Director" picture={user2} />
         <AvatarCard name="WorkMan" designation="Designer" picture={user3} />
         <div
-          className="w-icon-dimensions-mobile h-icon-dimensions-mobile lg:w-icon-dimensions lg:h-icon-dimensions flex items-center justify-center radius-full rounded-full shadow-xl"
+          className="w-icon-dimensions-mobile h-icon-dimensions-mobile tablet:w-icon-dimensions tablet:h-icon-dimensions flex items-center justify-center radius-full rounded-full shadow-xl"
           role="button"
           aria-label="More options"
           tabIndex={0}
@@ -62,7 +65,7 @@ const QuickTransfer = () => {
         </h2>
         <label
           htmlFor="amount-input"
-          className="text-card-details-title-gray font-inter text-xs md:text-base lg:text-base mr-7"
+          className="text-card-details-title-gray font-inter text-xs md:text-base tablet:text-base mr-7"
         >
           Write Amount
         </label>
@@ -70,7 +73,7 @@ const QuickTransfer = () => {
           {/* Input field */}
           <input
             id="amount-input"
-            className="h-12 py-4 pl-quick-transfer-input-field-padding-left-mobile lg:pl-quick-transfer-input-field-padding-left pr-32 md:pr-36 lg:pr-36 text-card-details-title-gray bg-input-field rounded-3xl w-full text-xs lg:text-base"
+            className="h-12 py-4 pl-quick-transfer-input-field-padding-left-mobile tablet:pl-quick-transfer-input-field-padding-left pr-32 md:pr-36 tablet:pr-36 text-card-details-title-gray bg-input-field rounded-3xl w-full text-xs tablet:text-base"
             aria-label="Enter amount to send"
           />
 
@@ -87,7 +90,7 @@ const QuickTransfer = () => {
                     : "bg-black"
                 }`}
               >
-                <div className="mr-2.5 text-sm lg:text-base">
+                <div className="mr-2.5 text-sm tablet:text-base">
                   {feedback ? "Sent!" : "Send"}
                 </div>
                 <SendIcon />

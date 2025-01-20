@@ -24,7 +24,7 @@ const Navbar: React.FC<NavbarProps> = ({
       <div className="flex items-center justify-between h-navbar-height px-6">
         {!sidebarOpen && (
           <button
-            className="sm:hidden md:hidden z-50 bg-white p-1"
+            className="sm:hidden md:hidden lg:hidden z-50 bg-white p-1"
             onClick={onHamburgerClick}
             aria-label="Open sidebar"
           >

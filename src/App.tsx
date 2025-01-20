@@ -10,7 +10,8 @@ import "./App.css";
 const App: React.FC = () => {
   return (
     <Router>
-      <div className="flex w-full h-full overflow-hidden max-w-full">
+      <div className="flex w-full min-h-full overflow-hidden max-w-full">
+        
         {/* Main Content */}
         <div className="flex bg-gray-100 w-full max-h-full">
           <Routes>
