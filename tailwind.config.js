@@ -7,6 +7,7 @@ export default {
   theme: {
     screens: {
       tablet: "888px",
+      md: "768px",
       lg: "1280px",
     },
     extend: {

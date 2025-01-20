@@ -10,7 +10,7 @@ import PencilIcon from "../../assets/icons/PencilIcon";
 
 interface ProfileDataType {
   profilePic: string;
-  [key: string]: string; 
+  [key: string]: string;
 }
 
 const EditProfile = () => {
@@ -63,9 +63,9 @@ const EditProfile = () => {
   };
 
   return (
-    <div className="w-full bg-white flex flex-col md:flex-row items-center md:items-start">
+    <div className="w-full bg-white flex flex-col lg:flex-row items-center lg:items-start">
       {/* Profile Picture */}
-      <div className="my-8 md:mt-0">
+      <div className="my-8 lg:mt-0 md:mr-14">
         <div className="relative w-settings-profile-pic-mobile h-settings-profile-pic-mobile lg:h-settings-profile-pic lg:w-settings-profile-pic">
           <img
             src={profilePic || "https://via.placeholder.com/150"}
@@ -91,25 +91,38 @@ const EditProfile = () => {
         </div>
       </div>
 
-      <div className="w-full font-inter bg-white md:pl-12">
+      <div className="w-full font-inter bg-white lg:pl-12">
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="grid grid-cols-1 sm:grid-cols-2 gap-y-form-gap gap-x-7"
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-y-form-gap gap-x-7"
           aria-label="Edit Profile Form"
           id="edit-profile-form"
           name="edit-profile-form"
         >
-          {PROFILE_FORM_FIELDS.map((field) => (
-            <FormField
-              key={field.name}
-              field={field}
-              register={register}
-              error={
-                errors[field.name as keyof EditProfileFormDataType]?.message
-              }
-            />
-          ))}
-
+          <div className="sm:col-span-1">
+            {PROFILE_FORM_FIELDS?.slice(0, 5).map((field) => (
+              <FormField
+                key={field.name}
+                field={field}
+                register={register}
+                error={
+                  errors[field.name as keyof EditProfileFormDataType]?.message
+                }
+              />
+            ))}
+          </div>
+          <div className="sm:col-span-1">
+            {PROFILE_FORM_FIELDS?.slice(5).map((field) => (
+              <FormField
+                key={field.name}
+                field={field}
+                register={register}
+                error={
+                  errors[field.name as keyof EditProfileFormDataType]?.message
+                }
+              />
+            ))}
+          </div>
           {/* Save Button */}
           <div className="col-span-full flex justify-center md:justify-end mt-4">
             <button
