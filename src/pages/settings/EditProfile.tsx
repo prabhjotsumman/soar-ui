@@ -99,32 +99,36 @@ const EditProfile = () => {
           id="edit-profile-form"
           name="edit-profile-form"
         >
-          <div className="sm:col-span-1">
-            {PROFILE_FORM_FIELDS?.slice(0, 5).map((field) => (
-              <FormField
-                key={field.name}
-                field={field}
-                register={register}
-                error={
-                  errors[field.name as keyof EditProfileFormDataType]?.message
-                }
-              />
+          <div className="sm:col-span-1 gap-y-form-gap">
+            {PROFILE_FORM_FIELDS?.slice(0, 5).map((field, i) => (
+              <div className={i + 1 != 5 ? "mb-form-gap" : ""}>
+                <FormField
+                  key={field.name}
+                  field={field}
+                  register={register}
+                  error={
+                    errors[field.name as keyof EditProfileFormDataType]?.message
+                  }
+                />
+              </div>
             ))}
           </div>
-          <div className="sm:col-span-1">
-            {PROFILE_FORM_FIELDS?.slice(5).map((field) => (
-              <FormField
-                key={field.name}
-                field={field}
-                register={register}
-                error={
-                  errors[field.name as keyof EditProfileFormDataType]?.message
-                }
-              />
+          <div className="sm:col-span-1 ">
+            {PROFILE_FORM_FIELDS?.slice(5).map((field, i) => (
+              <div className={i + 1 != 5 ? "mb-form-gap" : ""}>
+                <FormField
+                  key={field.name}
+                  field={field}
+                  register={register}
+                  error={
+                    errors[field.name as keyof EditProfileFormDataType]?.message
+                  }
+                />
+              </div>
             ))}
           </div>
           {/* Save Button */}
-          <div className="col-span-full flex justify-center md:justify-end mt-4">
+          <div className="col-span-full flex justify-center md:justify-end">
             <button
               type="submit"
               aria-label="Save profile information"
