@@ -6,9 +6,11 @@ export default {
   ],
   theme: {
     screens: {
-      tablet: "888px",
       md: "768px",
-      lg: "1280px",
+      tablet: "888px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1380px"
     },
     extend: {
       colors: {

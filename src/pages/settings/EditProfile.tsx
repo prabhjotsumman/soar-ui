@@ -68,7 +68,7 @@ const EditProfile = () => {
       <div className="my-8 lg:mt-0 md:mr-14">
         <div className="relative w-settings-profile-pic-mobile h-settings-profile-pic-mobile lg:h-settings-profile-pic lg:w-settings-profile-pic">
           <img
-            src={profilePic || "https://via.placeholder.com/150"}
+            src={profilePic || "https://placehold.co/150"}
             loading="lazy"
             alt="Profile Picture"
             className="w-full h-full rounded-full object-cover"
